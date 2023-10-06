@@ -1,4 +1,5 @@
 import 'package:basic_utils/basic_utils.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,9 @@ class HomeScreen extends StatelessWidget {
           if(!state.model.status){
             showToast(message: state.model.message, state: ToastStates.ERROR);
           }
+        }
+        if (state is InternetConnectedErrorState || state is ShopErrorHomeDataState || state is ShopErrorCategoriesDataState || state is ShopErrorGetFavoritesState || state is ShopErrorGetUserDataState){
+          ShopCubit.get(context).checkInternet();
         }
       },
       builder: (BuildContext context,ShopStates state) {
@@ -48,12 +52,13 @@ class HomeScreen extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
-          /////****************     Carousel Slider    ***********////////
+          /////****************     Carousel Slider    **************////////
           CarouselSlider(
             items: model?.data.banners
                 .map(
-                  (e) => Image(
-                    image: NetworkImage('${e.image}'),
+                  (e) => CachedNetworkImage(
+                    imageUrl: '${e.image}',
+                    placeholder:  (context, url) => Container(color: Colors.grey[300]),
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -153,8 +158,9 @@ class HomeScreen extends StatelessWidget {
           Stack(
             alignment: AlignmentDirectional.topStart,
             children: [
-              Image(
-                image: NetworkImage(model.image),
+              CachedNetworkImage(
+                imageUrl: model.image,
+                placeholder:  (context, url) => Container(color: Colors.grey[300]),
                 width: double.infinity,
                 height: 210.0,
               ),
@@ -243,10 +249,11 @@ class HomeScreen extends StatelessWidget {
     return Stack(
       alignment: AlignmentDirectional.bottomCenter,
       children: [
-        Image(
-          image: NetworkImage(model.image),
-          height: 100.0,
+        CachedNetworkImage(
+          imageUrl: model.image,
+          placeholder:  (context, url) => Container(color: Colors.grey[300]),
           width: 100.0,
+          height: 100.0,
           fit: BoxFit.cover,
         ),
         Container(

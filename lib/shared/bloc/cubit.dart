@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shop_app/models/categories_model.dart';
 import 'package:shop_app/models/change_favorites_model.dart';
 import 'package:shop_app/models/favorites_model.dart';
@@ -29,20 +30,47 @@ class ShopCubit extends Cubit<ShopStates> {
     return BlocProvider.of(context);
   }
 
-  //int currentIndex = 0;
   List<Widget> bottomScreens = [
     HomeScreen(),
     CategoriesScreen(),
     FavouritesScreen(),
     SettingsScreen(),
   ];
-
+// use current index from constants
   void changeIndex(int index) {
     currentInndex = index;
-    emit(ChangeBottomNavState());
-    CacheHelper.savaData(key: 'currentIndex', value: currentInndex);
+    CacheHelper.savaData(key: 'currentIndex', value: currentInndex).then((value) {
+      emit(ChangeBottomNavState());
+    });
   }
 
+  //Internet Connection Checker
+  Future<void> checkInternet() async {
+    //check internet
+    bool result = await InternetConnectionChecker().hasConnection;
+    if(result == true) {
+      emit(InternetConnectedSuccessState());
+      getHomeData();
+      getCategoriesData();
+      getFavorites();
+      getUserData();
+    } else {
+      showToast(message: 'No Internet Connection, check internet and try again', state: ToastStates.NOTIFY);
+      emit(InternetConnectedErrorState());
+    }
+  }
+
+  //Internet Connection Checker2
+  Future<void> checkInternetConnection() async {
+    //check internet
+    bool result = await InternetConnectionChecker().hasConnection;
+    if(result == true) {
+      emit(InternetConnectedSuccessState());
+    } else {
+      showToast(message: 'No Internet Connection, check internet and try again', state: ToastStates.NOTIFY);
+      emit(InternetConnectedErrorState());
+    }
+  }
   //get home(products & banners) data
   HomeModel? homeModel;
   Map<int, bool> favourites =

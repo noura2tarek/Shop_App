@@ -43,3 +43,6 @@ class ShopLogoutErrorState extends ShopStates {}
 
 class ShopChangePhotoSuccessState extends ShopStates {}
 class ShopChangePhotoErrorState extends ShopStates {}
+
+class InternetConnectedSuccessState extends ShopStates {}
+class InternetConnectedErrorState extends ShopStates {}
