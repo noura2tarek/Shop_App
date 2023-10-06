@@ -1,4 +1,5 @@
 import 'package:basic_utils/basic_utils.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,10 +41,9 @@ class CategoriesScreen extends StatelessWidget {
         padding: const EdgeInsets.all(17.0),
         child: Row(
           children: [
-            Image(
-              image: NetworkImage(
-                 model.image,
-              ),
+            CachedNetworkImage(
+              imageUrl: model.image,
+              placeholder:  (context, url) => Container(color: Colors.grey[300]),
               height: 80.0,
               width: 80.0,
             ),

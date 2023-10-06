@@ -6,8 +6,6 @@ import 'package:shop_app/shared/bloc/cubit.dart';
 import 'package:shop_app/shared/bloc/states.dart';
 import 'package:shop_app/shared/components/components.dart';
 
-import '../Styles/colors.dart';
-
 class FavouritesScreen extends StatelessWidget {
   const FavouritesScreen({Key? key}) : super(key: key);
 

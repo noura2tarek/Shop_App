@@ -1,5 +1,4 @@
-import 'dart:io';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,7 +59,7 @@ class SettingsScreen extends StatelessWidget {
                               if (ShopCubit.get(context).myImage != null)
                                 Container(
                                   clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     borderRadius: BorderRadiusDirectional.all(Radius.circular(10.0)),
                                   ),
                                   height: 90.0,
@@ -74,17 +73,17 @@ class SettingsScreen extends StatelessWidget {
                               if (ShopCubit.get(context).myImage == null)
                                 Container(
                                   clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     borderRadius: BorderRadiusDirectional.all(Radius.circular(10.0)),
                                   ),
-                                  child: Image(
+                                  child: CachedNetworkImage(
+                                    imageUrl: model.data!.image!,
+                                    placeholder: (context, url) => Container(color: Colors.grey[300]),
                                     filterQuality: FilterQuality.high,
                                     height: 90.0,
                                     width: 84.0,
                                     fit: BoxFit.cover,
-                                    image: NetworkImage(
-                                      model.data!.image!,
-                                    ),
+
                                   ),
                                 ),
                               IconButton(

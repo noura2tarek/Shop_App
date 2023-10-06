@@ -45,7 +45,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final Widget startWidget;
-
   MyApp({super.key, required this.startWidget});
 
   @override
@@ -57,7 +56,6 @@ class MyApp extends StatelessWidget {
           if (state is InternetConnectedErrorState) {
             ShopCubit.get(context).checkInternet();
           }
-
         },
         builder: (BuildContext context, ShopStates state) {
           return MaterialApp(

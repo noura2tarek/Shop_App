@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shop_app/Styles/colors.dart';
@@ -133,22 +134,25 @@ Widget defaultFormField({
       fontSize: 16.0,
   );
 }
-enum ToastStates{ SUCCESS, WAENING, ERROR, }
+enum ToastStates { SUCCESS, WAENING, ERROR, NOTIFY }
 
-Color chooseToastColor(ToastStates state){
-   late Color color;
-   switch(state){
-     case ToastStates.SUCCESS:
-       color= Colors.green;
-       break;
-     case ToastStates.WAENING:
-       color= Colors.amber;
-       break;
-     case ToastStates.ERROR:
-       color= Colors.red;
-       break;
-   }
-   return color;
+Color chooseToastColor(ToastStates state) {
+  late Color color;
+  switch (state) {
+    case ToastStates.SUCCESS:
+      color = Colors.green;
+      break;
+    case ToastStates.WAENING:
+      color = Colors.amber;
+      break;
+    case ToastStates.ERROR:
+      color = Colors.red;
+      break;
+    case ToastStates.NOTIFY:
+      color = Colors.grey;
+      break;
+  }
+  return color;
 }
 
 Widget myDivider(){
@@ -170,10 +174,9 @@ Widget buildProductList(model, BuildContext context, {bool isSearch = false}) {
           Stack(
             alignment: AlignmentDirectional.bottomStart,
             children: [
-              Image(
-                image: NetworkImage(
-                  model.image,
-                ),
+              CachedNetworkImage(
+                imageUrl: model.image,
+                placeholder: (context, url) => Container(color: Colors.grey[300]),
                 width: 120.0,
                 height: 120.0,
               ),

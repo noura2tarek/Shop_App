@@ -1,10 +1,6 @@
 //api link collection
 ////////////
-import 'package:flutter/material.dart';
-import 'package:shop_app/shared/components/components.dart';
 
-import '../../network/local/cache_helper.dart';
-import '../../pages/login/login_screen.dart';
 //GET
 //POST
 //UPDATE
@@ -22,4 +18,4 @@ void printFullText(String text){
 //login or register token
 String? token;
 
-int currentInndex =0 ;
+int currentInndex = 0 ;
