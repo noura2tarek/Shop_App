@@ -59,6 +59,7 @@ class HomeScreen extends StatelessWidget {
                   (e) => CachedNetworkImage(
                     imageUrl: '${e.image}',
                     placeholder:  (context, url) => Container(color: Colors.grey[300]),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -161,6 +162,7 @@ class HomeScreen extends StatelessWidget {
               CachedNetworkImage(
                 imageUrl: model.image,
                 placeholder:  (context, url) => Container(color: Colors.grey[300]),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
                 width: double.infinity,
                 height: 210.0,
               ),
@@ -252,6 +254,7 @@ class HomeScreen extends StatelessWidget {
         CachedNetworkImage(
           imageUrl: model.image,
           placeholder:  (context, url) => Container(color: Colors.grey[300]),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
           width: 100.0,
           height: 100.0,
           fit: BoxFit.cover,

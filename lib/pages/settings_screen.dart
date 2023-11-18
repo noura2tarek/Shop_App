@@ -79,6 +79,7 @@ class SettingsScreen extends StatelessWidget {
                                   child: CachedNetworkImage(
                                     imageUrl: model.data!.image!,
                                     placeholder: (context, url) => Container(color: Colors.grey[300]),
+                                    errorWidget: (context, url, error) => const Icon(Icons.error),
                                     filterQuality: FilterQuality.high,
                                     height: 90.0,
                                     width: 84.0,
@@ -91,7 +92,7 @@ class SettingsScreen extends StatelessWidget {
                                 onPressed: () {
                                   ShopCubit.get(context).pickImage();
                                 },
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.edit,
                                   size: 24.0,
                                   color: Colors.grey,

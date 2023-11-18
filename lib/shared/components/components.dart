@@ -177,6 +177,7 @@ Widget buildProductList(model, BuildContext context, {bool isSearch = false}) {
               CachedNetworkImage(
                 imageUrl: model.image,
                 placeholder: (context, url) => Container(color: Colors.grey[300]),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
                 width: 120.0,
                 height: 120.0,
               ),

@@ -44,6 +44,7 @@ class CategoriesScreen extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: model.image,
               placeholder:  (context, url) => Container(color: Colors.grey[300]),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
               height: 80.0,
               width: 80.0,
             ),
