@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/Styles/colors.dart';
 import 'package:shop_app/network/local/cache_helper.dart';
-
 import 'package:shop_app/pages/register/register_screen.dart';
-import 'package:shop_app/shared/bloc/cubit.dart';
 import 'package:shop_app/shared/components/components.dart';
-
 import '../../layout/home_layout.dart';
 import '../../shared/components/constants.dart';
+import '../../shared/controller/bloc/cubit.dart';
 import 'login_cubit/login_cubit.dart';
 import 'login_cubit/login_states.dart';
 
@@ -84,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                           type: TextInputType.emailAddress,
                           controller: emailController,
                           label: 'Email Address',
-                          inputBorder: OutlineInputBorder(),
+                          inputBorder: const OutlineInputBorder(),
                           preficon: Icons.email_outlined,
                           validator: (String? value) {
                             if (value!.isEmpty) {
@@ -101,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                           type: TextInputType.visiblePassword,
                           controller: passwordController,
                           label: 'Password',
-                          inputBorder: OutlineInputBorder(),
+                          inputBorder: const OutlineInputBorder(),
                           preficon: Icons.lock_outline,
                           isObsecure: ShopLoginCubit.get(context).isPassword,
                           sufficon: ShopLoginCubit.get(context).icon,

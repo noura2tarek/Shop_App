@@ -6,9 +6,9 @@ import 'package:shop_app/network/local/cache_helper.dart';
 import 'package:shop_app/network/remote/dio_helper.dart';
 import 'package:shop_app/pages/login/login_screen.dart';
 import 'package:shop_app/pages/on_boarding_screen.dart';
-import 'package:shop_app/shared/bloc/cubit.dart';
-import 'package:shop_app/shared/bloc/states.dart';
-import 'package:shop_app/shared/bloc_observer.dart';
+import 'package:shop_app/shared/controller/bloc/cubit.dart';
+import 'package:shop_app/shared/controller/bloc/states.dart';
+import 'package:shop_app/shared/controller/bloc_observer.dart';
 import 'package:shop_app/shared/components/constants.dart';
 
 void main() async {
@@ -35,7 +35,7 @@ void main() async {
       widget = LoginScreen();
     }
   } else {
-    widget = OnBoardingScreen();
+    widget = const OnBoardingScreen();
   }
 
   runApp(MyApp(

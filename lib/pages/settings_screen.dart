@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/Styles/colors.dart';
 import 'package:shop_app/models/login_model.dart';
-import 'package:shop_app/shared/bloc/cubit.dart';
 import 'package:shop_app/shared/components/components.dart';
-import '../shared/bloc/states.dart';
+import '../shared/controller/bloc/cubit.dart';
+import '../shared/controller/bloc/states.dart';
 
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({Key? key}) : super(key: key);
@@ -141,7 +141,7 @@ class SettingsScreen extends StatelessWidget {
                         controller: emailController,
                         label: 'Email Address',
                         preficon: Icons.email,
-                        inputBorder: OutlineInputBorder(),
+                        inputBorder: const OutlineInputBorder(),
                         validator: (String? value) {
                           if (value!.isEmpty) {
                             return 'please enter your email';
@@ -157,7 +157,7 @@ class SettingsScreen extends StatelessWidget {
                         controller: phoneController,
                         label: 'Phone',
                         preficon: Icons.phone,
-                        inputBorder: OutlineInputBorder(),
+                        inputBorder: const OutlineInputBorder(),
                         validator: (String? value) {
                           if (value!.isEmpty) {
                             return ' phone must not be empty';

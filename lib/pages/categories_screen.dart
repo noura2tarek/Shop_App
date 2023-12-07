@@ -4,9 +4,10 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/models/categories_model.dart';
-import 'package:shop_app/shared/bloc/cubit.dart';
-import 'package:shop_app/shared/bloc/states.dart';
 import 'package:shop_app/shared/components/components.dart';
+
+import '../shared/controller/bloc/cubit.dart';
+import '../shared/controller/bloc/states.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
@@ -53,13 +54,13 @@ class CategoriesScreen extends StatelessWidget {
             ),
             Text(
               name,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Spacer(),
-            Icon(Icons.arrow_forward_ios),
+            const Spacer(),
+            const Icon(Icons.arrow_forward_ios),
           ],
         ),
       );

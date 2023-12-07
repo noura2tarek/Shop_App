@@ -7,7 +7,7 @@ class DioHelper {
     dio = Dio(
       BaseOptions(
         baseUrl: "https://student.valuxapps.com/api/",
-        receiveDataWhenStatusError: false,
+        receiveDataWhenStatusError: true,
         persistentConnection: false,
 
       ),

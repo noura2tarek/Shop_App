@@ -2,9 +2,9 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/shared/bloc/cubit.dart';
-import 'package:shop_app/shared/bloc/states.dart';
 import 'package:shop_app/shared/components/components.dart';
+import '../shared/controller/bloc/cubit.dart';
+import '../shared/controller/bloc/states.dart';
 
 class FavouritesScreen extends StatelessWidget {
   const FavouritesScreen({Key? key}) : super(key: key);

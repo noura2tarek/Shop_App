@@ -7,9 +7,9 @@ import 'package:shop_app/pages/register/register_cubit/register_states.dart';
 import '../../Styles/colors.dart';
 import '../../layout/home_layout.dart';
 import '../../network/local/cache_helper.dart';
-import '../../shared/bloc/cubit.dart';
 import '../../shared/components/components.dart';
 import '../../shared/components/constants.dart';
+import '../../shared/controller/bloc/cubit.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({Key? key}) : super(key: key);
@@ -73,7 +73,7 @@ class RegisterScreen extends StatelessWidget {
                           type: TextInputType.name,
                           controller: nameController,
                           label: 'Name',
-                          inputBorder: OutlineInputBorder(),
+                          inputBorder: const OutlineInputBorder(),
                           preficon: Icons.person_outline,
                           validator: (String? value) {
                             if (value!.isEmpty) {
@@ -90,7 +90,7 @@ class RegisterScreen extends StatelessWidget {
                           type: TextInputType.emailAddress,
                           controller: emailController,
                           label: 'Email Address',
-                          inputBorder: OutlineInputBorder(),
+                          inputBorder: const OutlineInputBorder(),
                           preficon: Icons.email_outlined,
                           onSubmit: (value) {
                           },
@@ -109,7 +109,7 @@ class RegisterScreen extends StatelessWidget {
                           type: TextInputType.visiblePassword,
                           controller: passwordController,
                           label: 'Password',
-                          inputBorder: OutlineInputBorder(),
+                          inputBorder: const OutlineInputBorder(),
                           preficon: Icons.lock_outline,
                           isObsecure: ShopRegisterCubit.get(context).isPassword,
                           sufficon: ShopRegisterCubit.get(context).icon,
@@ -119,9 +119,11 @@ class RegisterScreen extends StatelessWidget {
                           },
                           validator: (String? value) {
                             if (value!.isEmpty) {
+                              return "password can't be blank";
+                            } else if(value.length < 8 ){
                               return 'password is too short';
                             } else {
-                              return null;
+                              return null ;
                             }
                           },
                         ),
@@ -132,7 +134,7 @@ class RegisterScreen extends StatelessWidget {
                           type: TextInputType.phone,
                           controller: phoneController,
                           label: 'Phone',
-                          inputBorder: OutlineInputBorder(),
+                          inputBorder: const OutlineInputBorder(),
                           preficon: Icons.phone,
                           validator: (String? value) {
                             if (value!.isEmpty) {

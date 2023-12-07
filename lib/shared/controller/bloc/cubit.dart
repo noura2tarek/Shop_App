@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,12 +15,11 @@ import 'package:shop_app/pages/categories_screen.dart';
 import 'package:shop_app/pages/favourites_screen.dart';
 import 'package:shop_app/pages/home_screen.dart';
 import 'package:shop_app/pages/settings_screen.dart';
-import 'package:shop_app/shared/bloc/states.dart';
 import 'package:shop_app/shared/components/constants.dart';
-
-import '../../network/local/cache_helper.dart';
-import '../../pages/login/login_screen.dart';
-import '../components/components.dart';
+import 'package:shop_app/shared/controller/bloc/states.dart';
+import '../../../network/local/cache_helper.dart';
+import '../../../pages/login/login_screen.dart';
+import '../../components/components.dart';
 
 class ShopCubit extends Cubit<ShopStates> {
   ShopCubit() : super(ShopInitialState());

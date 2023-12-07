@@ -1,5 +1,5 @@
 // To receive response data after register and deal with it
-// we can appear an error message in the UI screen so the user know what the error the email he entered or what.
+// we can appear an error message in the UI screen so the user know what the error, the email he entered or what.
 class RegisterModel {
   late bool status;
   String? message;

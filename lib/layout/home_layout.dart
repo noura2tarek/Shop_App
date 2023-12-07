@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/pages/search/search_screen.dart';
-import 'package:shop_app/shared/bloc/cubit.dart';
-import 'package:shop_app/shared/bloc/states.dart';
 import 'package:shop_app/shared/components/components.dart';
-
 import '../shared/components/constants.dart';
+import '../shared/controller/bloc/cubit.dart';
+import '../shared/controller/bloc/states.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);

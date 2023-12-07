@@ -7,36 +7,41 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/Styles/colors.dart';
 import 'package:shop_app/models/categories_model.dart';
 import 'package:shop_app/models/home_model.dart';
-import 'package:shop_app/shared/bloc/cubit.dart';
-import 'package:shop_app/shared/bloc/states.dart';
 import 'package:shop_app/shared/components/components.dart';
 
-/////****************      products screen    ***********//////
+import '../shared/controller/bloc/cubit.dart';
+import '../shared/controller/bloc/states.dart';
+
+/////****************      products screen    ***********    //////
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ShopCubit, ShopStates>(
-      listener: (BuildContext context,ShopStates state) {
-        if(state is ShopSuccessChangeFavoritesState){
-          if(!state.model.status){
+      listener: (BuildContext context, ShopStates state) {
+        if (state is ShopSuccessChangeFavoritesState) {
+          if (!state.model.status) {
             showToast(message: state.model.message, state: ToastStates.ERROR);
           }
         }
-        if (state is InternetConnectedErrorState || state is ShopErrorHomeDataState || state is ShopErrorCategoriesDataState || state is ShopErrorGetFavoritesState || state is ShopErrorGetUserDataState){
+        if (state is InternetConnectedErrorState ||
+            state is ShopErrorHomeDataState ||
+            state is ShopErrorCategoriesDataState ||
+            state is ShopErrorGetFavoritesState ||
+            state is ShopErrorGetUserDataState) {
           ShopCubit.get(context).checkInternet();
         }
       },
-      builder: (BuildContext context,ShopStates state) {
+      builder: (BuildContext context, ShopStates state) {
         return ConditionalBuilder(
           condition: ShopCubit.get(context).homeModel != null &&
               ShopCubit.get(context).categoriesModel != null,
           builder: (context) {
             return builderWidget(
-                model: ShopCubit.get(context).homeModel,
-                cModel: ShopCubit.get(context).categoriesModel,
-                context: context,
+              model: ShopCubit.get(context).homeModel,
+              cModel: ShopCubit.get(context).categoriesModel,
+              context: context,
             );
           },
           fallback: (context) =>
@@ -47,7 +52,9 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget builderWidget(
-      {required HomeModel? model, required CategoriesModel? cModel, required BuildContext context}) {
+      {required HomeModel? model,
+      required CategoriesModel? cModel,
+      required BuildContext context}) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
@@ -58,8 +65,10 @@ class HomeScreen extends StatelessWidget {
                 .map(
                   (e) => CachedNetworkImage(
                     imageUrl: '${e.image}',
-                    placeholder:  (context, url) => Container(color: Colors.grey[300]),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    placeholder: (context, url) =>
+                        Container(color: Colors.grey[300]),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -86,7 +95,7 @@ class HomeScreen extends StatelessWidget {
             height: 4.0,
           ),
 
-          /////****************     Categoryegories List    ***********///////////
+          /////****************     Categorizes List    ***********///////////
           Padding(
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
             child: Column(
@@ -141,8 +150,10 @@ class HomeScreen extends StatelessWidget {
               crossAxisSpacing: 2.0,
               childAspectRatio: 1 / 1.75,
               //width / height
-              children: List.generate(model!.data.products.length,
-                  (index) => buildGridProduct(model.data.products[index], context)),
+              children: List.generate(
+                  model!.data.products.length,
+                  (index) =>
+                      buildGridProduct(model.data.products[index], context)),
             ),
           ),
         ],
@@ -150,7 +161,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget buildGridProduct(ProductModel model , BuildContext context) {
+  Widget buildGridProduct(ProductModel model, BuildContext context) {
     return Container(
       color: Colors.white,
       child: Column(
@@ -161,7 +172,8 @@ class HomeScreen extends StatelessWidget {
             children: [
               CachedNetworkImage(
                 imageUrl: model.image,
-                placeholder:  (context, url) => Container(color: Colors.grey[300]),
+                placeholder: (context, url) =>
+                    Container(color: Colors.grey[300]),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
                 width: double.infinity,
                 height: 210.0,
@@ -221,11 +233,15 @@ class HomeScreen extends StatelessWidget {
                       Spacer(),
                       IconButton(
                         onPressed: () {
-                          ShopCubit.get(context).changeFavorites(productId: model.id);
+                          ShopCubit.get(context)
+                              .changeFavorites(productId: model.id);
                         },
                         tooltip: 'Add to favourites',
                         icon: CircleAvatar(
-                          backgroundColor: ShopCubit.get(context).favourites[model.id]!? Colors.blue : Colors.grey,
+                          backgroundColor:
+                              ShopCubit.get(context).favourites[model.id]!
+                                  ? Colors.blue
+                                  : Colors.grey,
                           radius: 15.0,
                           child: Icon(
                             Icons.favorite_border,
@@ -234,7 +250,6 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-
                     ],
                   ),
                 ],
@@ -253,7 +268,7 @@ class HomeScreen extends StatelessWidget {
       children: [
         CachedNetworkImage(
           imageUrl: model.image,
-          placeholder:  (context, url) => Container(color: Colors.grey[300]),
+          placeholder: (context, url) => Container(color: Colors.grey[300]),
           errorWidget: (context, url, error) => const Icon(Icons.error),
           width: 100.0,
           height: 100.0,
@@ -275,6 +290,4 @@ class HomeScreen extends StatelessWidget {
       ],
     );
   }
-
-
 }

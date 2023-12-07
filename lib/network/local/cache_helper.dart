@@ -45,6 +45,7 @@ class CacheHelper {
   static Future<bool> removeData({required String key}) async{
     return await sharedPreferences.remove(key);
   }
+
   //check if the shared preferences contains a certain value(key) or not
   static bool checkData({required String key}){
     return  sharedPreferences.containsKey(key);

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shop_app/Styles/colors.dart';
 
-import '../bloc/cubit.dart';
+import '../controller/bloc/cubit.dart';
+
 
 void navigateTo({
   required BuildContext context,
@@ -50,7 +51,7 @@ Widget defaultButton({
         },
         child: Text(
           isUpperCase ? text.toUpperCase() : text,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),
@@ -93,6 +94,7 @@ Widget defaultFormField({
       obscureText: isObsecure,
       cursorColor: cursorColor,
       decoration: InputDecoration(
+
         fillColor: fillColor,
         labelStyle: TextStyle(
           color: labelColor,
@@ -244,7 +246,7 @@ Widget buildProductList(model, BuildContext context, {bool isSearch = false}) {
 
                         backgroundColor: ShopCubit.get(context).favouritesProductsId.contains(model.id)? Colors.blue : Colors.grey ,
                         radius: 15.0,
-                        child: Icon(
+                        child: const Icon(
                           Icons.favorite_border,
                           size: 16.0,
                           color: Colors.white,
