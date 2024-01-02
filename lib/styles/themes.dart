@@ -4,7 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:shop_app/Styles/colors.dart';
 
 ThemeData darkTheme = ThemeData(
-  primarySwatch: Colors.blue,
+  primarySwatch: defaultColor,
   dividerTheme: DividerThemeData(
     color: Colors.grey[200],
   ),
@@ -59,11 +59,19 @@ ThemeData darkTheme = ThemeData(
     unselectedItemColor: Colors.grey,
   ),
   fontFamily: 'Jannah',
+  floatingActionButtonTheme:  FloatingActionButtonThemeData(
+    backgroundColor: floatingActionButtonColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(9.0),
+    ),
+    elevation: 7.0,
+  ),
 );
 
 ThemeData lightTheme =  ThemeData(
-  primarySwatch: Colors.blue,
-  primaryColor: Colors.indigo,
+  useMaterial3: false,
+  primarySwatch: defaultColor,
+  primaryColor: defaultColor,
   dividerTheme: DividerThemeData(
     color: Colors.grey[400],
   ),
@@ -101,7 +109,12 @@ ThemeData lightTheme =  ThemeData(
     backgroundColor: Colors.white,
   ),
   fontFamily: 'Jannah',
+  floatingActionButtonTheme:  FloatingActionButtonThemeData(
+    backgroundColor: floatingActionButtonColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(9.0),
+    ),
+    elevation: 7.0,
+  ),
 
-  //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-  //useMaterial3: true,
 );

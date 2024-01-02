@@ -11,15 +11,11 @@ import 'package:shop_app/models/login_model.dart';
 import 'package:shop_app/models/logout_model.dart';
 import 'package:shop_app/network/end_points.dart';
 import 'package:shop_app/network/remote/dio_helper.dart';
-import 'package:shop_app/pages/categories_screen.dart';
-import 'package:shop_app/pages/favourites_screen.dart';
-import 'package:shop_app/pages/home_screen.dart';
-import 'package:shop_app/pages/settings_screen.dart';
 import 'package:shop_app/shared/components/constants.dart';
 import 'package:shop_app/shared/controller/bloc/states.dart';
 import '../../../network/local/cache_helper.dart';
 import '../../../pages/login/login_screen.dart';
-import '../../components/components.dart';
+import '../../components/reusable_components.dart';
 
 class ShopCubit extends Cubit<ShopStates> {
   ShopCubit() : super(ShopInitialState());
@@ -28,12 +24,6 @@ class ShopCubit extends Cubit<ShopStates> {
     return BlocProvider.of(context);
   }
 
-  List<Widget> bottomScreens = [
-    HomeScreen(),
-    CategoriesScreen(),
-    FavouritesScreen(),
-    SettingsScreen(),
-  ];
 // use current index from constants
   void changeIndex(int index) {
     currentInndex = index;

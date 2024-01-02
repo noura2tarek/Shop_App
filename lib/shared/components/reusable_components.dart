@@ -86,42 +86,46 @@ Widget defaultFormField({
   bool isObsecure = false,
   void Function()? onTab,
 }) =>
-    TextFormField(
-      style: style,
-      keyboardType: type,
-      controller: controller,
-      validator: validator,
-      obscureText: isObsecure,
-      cursorColor: cursorColor,
-      decoration: InputDecoration(
+    Container(
+      height: 60.0,
+      child: TextFormField(
+        style: style,
+        keyboardType: type,
+        controller: controller,
+        validator: validator,
+        obscureText: isObsecure,
+        cursorColor: cursorColor,
+        decoration: InputDecoration(
 
-        fillColor: fillColor,
-        labelStyle: TextStyle(
-          color: labelColor,
-        ),
-        border: inputBorder,
-        labelText: label,
-        hintText: hint,
-        hintStyle: TextStyle(
-          color: hintColor,
-        ),
-        prefixIcon: Icon(
-          preficon,
-          color: prefixColor,
-          size: prefixIconSize,
-        ),
-        suffixIcon: IconButton(
-          icon: Icon(
-            sufficon,
+          fillColor: fillColor,
+          labelStyle: TextStyle(
+            color: labelColor,
           ),
-          onPressed: suffixPreesed,
+          border: inputBorder,
+          labelText: label,
+          hintText: hint,
+          hintStyle: TextStyle(
+            color: hintColor,
+          ),
+          prefixIcon: Icon(
+            preficon,
+            color: prefixColor,
+            size: prefixIconSize,
+          ),
+          suffixIcon: IconButton(
+            icon: Icon(
+              sufficon,
+            ),
+            onPressed: suffixPreesed,
+          ),
         ),
+        onTap: onTab,
+        onFieldSubmitted: onSubmit,
+        onChanged: onChange,
       ),
-      onTap: onTab,
-      onFieldSubmitted: onSubmit,
-      onChanged: onChange,
     );
 
+// Show toast message after finishing a certain function
  void showToast({
   required String message,
   required ToastStates state,
@@ -165,6 +169,7 @@ Widget myDivider(){
   );
 }
 
+// Build products method
 Widget buildProductList(model, BuildContext context, {bool isSearch = false}) {
   return Padding(
     padding: const EdgeInsets.all(20.0),
@@ -263,6 +268,11 @@ Widget buildProductList(model, BuildContext context, {bool isSearch = false}) {
     ),
   );
 }
+
+
+
+
+
 
 
 

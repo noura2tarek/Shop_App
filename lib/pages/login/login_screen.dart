@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/Styles/colors.dart';
 import 'package:shop_app/network/local/cache_helper.dart';
 import 'package:shop_app/pages/register/register_screen.dart';
-import 'package:shop_app/shared/components/components.dart';
+import 'package:shop_app/shared/components/reusable_components.dart';
 import '../../layout/home_layout.dart';
 import '../../shared/components/constants.dart';
 import '../../shared/controller/bloc/cubit.dart';
@@ -78,6 +78,7 @@ class LoginScreen extends StatelessWidget {
                         const SizedBox(
                           height: 30.0,
                         ),
+                        /////******* Form fields ******////////
                         defaultFormField(
                           type: TextInputType.emailAddress,
                           controller: emailController,
@@ -115,12 +116,13 @@ class LoginScreen extends StatelessWidget {
                           },
                           validator: (String? value) {
                             if (value!.isEmpty) {
-                              return 'password is too short';
-                            } else {
-                              return null;
+                              return "password can't be blank";
+                            }else {
+                              return null ;
                             }
                           },
                         ),
+                        /////******* End of form fields ******////////
                         const SizedBox(
                           height: 30.0,
                         ),

@@ -7,12 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/Styles/colors.dart';
 import 'package:shop_app/models/categories_model.dart';
 import 'package:shop_app/models/home_model.dart';
-import 'package:shop_app/shared/components/components.dart';
+import 'package:shop_app/shared/components/reusable_components.dart';
 
 import '../shared/controller/bloc/cubit.dart';
 import '../shared/controller/bloc/states.dart';
 
-/////****************      products screen    ***********    //////
+ /*--------------------   products screen--------------------------*/
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
-          /////****************     Carousel Slider    **************////////
+          /*--------------------  Carousel Slider --------------------------*/
           CarouselSlider(
             items: model?.data.banners
                 .map(
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
             height: 4.0,
           ),
 
-          /////****************     Categorizes List    ***********///////////
+          /*--------------------  Categories List --------------------------*/
           Padding(
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
             child: Column(
@@ -139,7 +139,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          /////****************     Grid View    ***********///////////
+          /*--------------------  Grid View --------------------------*/
           Container(
             color: Colors.grey[300],
             child: GridView.count(
@@ -161,6 +161,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // Grid product design
   Widget buildGridProduct(ProductModel model, BuildContext context) {
     return Container(
       color: Colors.white,
@@ -184,7 +185,7 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.yellow,
                   child: Text(
                     '${model.discount}% DISCOUNT',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 13.0,
                     ),
                   ),
@@ -260,7 +261,7 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
+ // Category item design
   Widget buildCategoryItem(DataModel model) {
     String name = StringUtils.capitalize(model.name);
     return Stack(

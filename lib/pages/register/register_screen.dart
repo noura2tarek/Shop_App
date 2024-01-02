@@ -7,9 +7,10 @@ import 'package:shop_app/pages/register/register_cubit/register_states.dart';
 import '../../Styles/colors.dart';
 import '../../layout/home_layout.dart';
 import '../../network/local/cache_helper.dart';
-import '../../shared/components/components.dart';
+import '../../shared/components/reusable_components.dart';
 import '../../shared/components/constants.dart';
 import '../../shared/controller/bloc/cubit.dart';
+import '../login/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({Key? key}) : super(key: key);
@@ -69,6 +70,7 @@ class RegisterScreen extends StatelessWidget {
                         const SizedBox(
                           height: 30.0,
                         ),
+                        /////*******  Form fields ******////////
                         defaultFormField(
                           type: TextInputType.name,
                           controller: nameController,
@@ -144,6 +146,7 @@ class RegisterScreen extends StatelessWidget {
                             }
                           },
                         ),
+                        /////******* end of form fields ******////////
                         const SizedBox(
                           height: 30.0,
                         ),
@@ -156,7 +159,7 @@ class RegisterScreen extends StatelessWidget {
                               isUpperCase: true,
                               function: () {
                                 if (formKey.currentState!.validate()) {
-                                  //print(emailController.text);
+
                                   ShopRegisterCubit.get(context).userRegister(
                                     email: emailController.text,
                                     password: passwordController.text,
@@ -173,7 +176,20 @@ class RegisterScreen extends StatelessWidget {
                           },
                         ),
                         const SizedBox(
-                          height: 15.0,
+                          height: 10.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text('Already have an account?'),
+                            defaultTextButton(
+                              function: () {
+                                navigateAndRemove(
+                                    context: context, widget: LoginScreen());
+                              },
+                              text: 'Login',
+                            ),
+                          ],
                         ),
                       ],
                     ),
