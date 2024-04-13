@@ -33,6 +33,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: true, //default back leading arrow
         actions: [
           TextButton(
             onPressed: submitToLogin,
