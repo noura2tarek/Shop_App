@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shop_app/Styles/colors.dart';
 
-import '../controller/bloc/cubit.dart';
+import '../controllers/shared_bloc/cubit.dart';
 
 
 void navigateTo({
@@ -87,7 +87,7 @@ Widget defaultFormField({
   void Function()? onTab,
 }) =>
     Container(
-      height: 60.0,
+      height: 51.0,
       child: TextFormField(
         style: style,
         keyboardType: type,
@@ -178,6 +178,7 @@ Widget buildProductList(model, BuildContext context, {bool isSearch = false}) {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          
           Stack(
             alignment: AlignmentDirectional.bottomStart,
             children: [

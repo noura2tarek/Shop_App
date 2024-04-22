@@ -1,10 +1,10 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/shared/components/reusable_components.dart';
+import 'package:shop_app/shared/reusable_components/reusable_components.dart';
 import '../shared/components/build_category_item.dart';
-import '../shared/controller/bloc/cubit.dart';
-import '../shared/controller/bloc/states.dart';
+import '../shared/controllers/shared_bloc/cubit.dart';
+import '../shared/controllers/shared_bloc/states.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({Key? key}) : super(key: key);

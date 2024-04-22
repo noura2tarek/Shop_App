@@ -11,11 +11,11 @@ import 'package:shop_app/models/login_model.dart';
 import 'package:shop_app/models/logout_model.dart';
 import 'package:shop_app/network/end_points.dart';
 import 'package:shop_app/network/remote/dio_helper.dart';
-import 'package:shop_app/shared/components/constants.dart';
-import 'package:shop_app/shared/controller/bloc/states.dart';
+import 'package:shop_app/shared/constants.dart';
+import 'package:shop_app/shared/controllers/shared_bloc/states.dart';
 import '../../../network/local/cache_helper.dart';
 import '../../../pages/login/login_screen.dart';
-import '../../components/reusable_components.dart';
+import '../../reusable_components/reusable_components.dart';
 
 class ShopCubit extends Cubit<ShopStates> {
   ShopCubit() : super(ShopInitialState());

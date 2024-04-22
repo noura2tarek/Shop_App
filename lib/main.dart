@@ -6,10 +6,10 @@ import 'package:shop_app/network/local/cache_helper.dart';
 import 'package:shop_app/network/remote/dio_helper.dart';
 import 'package:shop_app/pages/login/login_screen.dart';
 import 'package:shop_app/pages/on_boarding_screen.dart';
-import 'package:shop_app/shared/controller/bloc/cubit.dart';
-import 'package:shop_app/shared/controller/bloc/states.dart';
-import 'package:shop_app/shared/controller/bloc_observer.dart';
-import 'package:shop_app/shared/components/constants.dart';
+import 'package:shop_app/shared/constants.dart';
+import 'package:shop_app/shared/controllers/bloc_observer.dart';
+import 'package:shop_app/shared/controllers/shared_bloc/cubit.dart';
+import 'package:shop_app/shared/controllers/shared_bloc/states.dart';
 
 void main() async {
   WidgetsFlutterBinding
@@ -45,6 +45,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final Widget startWidget;
+
   MyApp({super.key, required this.startWidget});
 
   @override

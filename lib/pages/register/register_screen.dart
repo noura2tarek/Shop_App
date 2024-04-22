@@ -1,15 +1,14 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/pages/register/register_cubit/register_cubit.dart';
-import 'package:shop_app/pages/register/register_cubit/register_states.dart';
-
 import '../../Styles/colors.dart';
 import '../../layout/home_layout.dart';
 import '../../network/local/cache_helper.dart';
-import '../../shared/components/reusable_components.dart';
-import '../../shared/components/constants.dart';
-import '../../shared/controller/bloc/cubit.dart';
+import '../../shared/controllers/register_cubit/register_cubit.dart';
+import '../../shared/controllers/register_cubit/register_states.dart';
+import '../../shared/controllers/shared_bloc/cubit.dart';
+import '../../shared/reusable_components/reusable_components.dart';
+import '../../shared/constants.dart';
 import '../login/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {

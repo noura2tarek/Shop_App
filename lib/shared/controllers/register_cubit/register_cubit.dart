@@ -3,38 +3,42 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/network/remote/dio_helper.dart';
-import '../../../models/login_model.dart';
+import 'package:shop_app/shared/controllers/register_cubit/register_states.dart';
+import '../../../models/register_model.dart';
 import '../../../network/end_points.dart';
-import 'login_states.dart';
 
-class ShopLoginCubit extends Cubit<ShopLoginStates> {
-  ShopLoginCubit() : super(ShopLoginInitialState());
+class ShopRegisterCubit extends Cubit<ShopRegisterStates> {
+  ShopRegisterCubit() : super(ShopRegisterInitialState());
 
-  static ShopLoginCubit get(context) => BlocProvider.of(context);
+  static ShopRegisterCubit get(context) => BlocProvider.of(context);
   bool isPassword = true;
   IconData icon = Icons.visibility_outlined;
-  late LoginModel loginModel;
+  late RegisterModel registerModel;
 
-  //method to post login data to api by using dio
-  void userLogin({
+  //method to post register data to api by using dio
+  void userRegister({
+    required String name,
     required String email,
     required String password,
+    required String phone,
     String lang = 'en',
   }) {
-    emit(ShopLoginLoadingState());
+    emit(ShopRegisterLoadingState());
     DioHelper.postData(
-      url: LOGIN,
+      url: REGISTER,
       data: {
+        "name": name,
         "email": email,
         "password": password,
+        "phone": phone,
       },
       lang: lang,
     ).then((value) {
-      loginModel = LoginModel.fromJson(value.data);
-      emit(ShopLoginSuccessState(loginModel));
+      registerModel = RegisterModel.fromJson(value.data);
+      emit(ShopRegisterSuccessState(registerModel));
     }).catchError((error) {
       print(error.toString());
-      emit(ShopLoginErrorState(error.toString()));
+      emit(ShopRegisterErrorState(error.toString()));
     });
   }
 
@@ -42,6 +46,6 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
     isPassword = !isPassword;
     icon =
         isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
-    emit(ShoppChangePasswordVisibilityState());
+    emit(ShopRegChangePasswordVisibilityState());
   }
 }

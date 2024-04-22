@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/Styles/colors.dart';
 import 'package:shop_app/models/login_model.dart';
-import 'package:shop_app/shared/components/reusable_components.dart';
-import '../shared/controller/bloc/cubit.dart';
-import '../shared/controller/bloc/states.dart';
+import 'package:shop_app/shared/reusable_components/reusable_components.dart';
+import '../shared/controllers/shared_bloc/cubit.dart';
+import '../shared/controllers/shared_bloc/states.dart';
 
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({Key? key}) : super(key: key);

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/pages/search/search_screen.dart';
-import 'package:shop_app/shared/components/reusable_components.dart';
-import '../shared/components/constants.dart';
-import '../shared/components/lists.dart';
-import '../shared/controller/bloc/cubit.dart';
-import '../shared/controller/bloc/states.dart';
+import 'package:shop_app/shared/reusable_components/reusable_components.dart';
+import '../shared/constants.dart';
+import '../network/static/lists.dart';
+import '../shared/controllers/shared_bloc/cubit.dart';
+import '../shared/controllers/shared_bloc/states.dart';
 
 class HomeLayout extends StatelessWidget {
   const HomeLayout({Key? key}) : super(key: key);

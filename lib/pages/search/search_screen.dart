@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/pages/search/search_cubit/search_cubit.dart';
 import 'package:shop_app/pages/search/search_cubit/search_states.dart';
-import '../../shared/components/reusable_components.dart';
+import '../../shared/reusable_components/reusable_components.dart';
 
 class SearchScreen extends StatelessWidget {
   SearchScreen({Key? key}) : super(key: key);

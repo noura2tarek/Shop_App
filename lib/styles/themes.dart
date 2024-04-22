@@ -22,17 +22,14 @@ ThemeData darkTheme = ThemeData(
         color: Colors.grey,
       ),
     ),
-
   ),
   scaffoldBackgroundColor: HexColor('333739'),
-
   textTheme: const TextTheme(
       bodySmall: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 18.0,
-        color: Colors.white,
-      )
-  ),
+    fontWeight: FontWeight.bold,
+    fontSize: 18.0,
+    color: Colors.white,
+  )),
   appBarTheme: AppBarTheme(
       titleTextStyle: const TextStyle(
         color: Colors.white,
@@ -47,8 +44,7 @@ ThemeData darkTheme = ThemeData(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: HexColor('333739'),
         statusBarIconBrightness: Brightness.light,
-      )
-  ),
+      )),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: HexColor('333739'),
     type: BottomNavigationBarType.fixed,
@@ -59,7 +55,7 @@ ThemeData darkTheme = ThemeData(
     unselectedItemColor: Colors.grey,
   ),
   fontFamily: 'Jannah',
-  floatingActionButtonTheme:  FloatingActionButtonThemeData(
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
     backgroundColor: floatingActionButtonColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(9.0),
@@ -68,7 +64,7 @@ ThemeData darkTheme = ThemeData(
   ),
 );
 
-ThemeData lightTheme =  ThemeData(
+ThemeData lightTheme = ThemeData(
   useMaterial3: false,
   primarySwatch: defaultColor,
   primaryColor: defaultColor,
@@ -98,8 +94,7 @@ ThemeData lightTheme =  ThemeData(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,
-      )
-  ),
+      )),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     type: BottomNavigationBarType.fixed,
     selectedItemColor: defaultColor,
@@ -109,12 +104,11 @@ ThemeData lightTheme =  ThemeData(
     backgroundColor: Colors.white,
   ),
   fontFamily: 'Jannah',
-  floatingActionButtonTheme:  FloatingActionButtonThemeData(
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
     backgroundColor: floatingActionButtonColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(9.0),
     ),
     elevation: 7.0,
   ),
-
 );

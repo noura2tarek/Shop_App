@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/Styles/colors.dart';
 import 'package:shop_app/network/local/cache_helper.dart';
 import 'package:shop_app/pages/login/login_screen.dart';
-import 'package:shop_app/shared/components/reusable_components.dart';
+import 'package:shop_app/shared/reusable_components/reusable_components.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../shared/components/build_boarding_item.dart';
-import '../shared/components/lists.dart';
+import '../network/static/lists.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);

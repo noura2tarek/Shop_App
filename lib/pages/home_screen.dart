@@ -7,10 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/Styles/colors.dart';
 import 'package:shop_app/models/categories_model.dart';
 import 'package:shop_app/models/home_model.dart';
-import 'package:shop_app/shared/components/reusable_components.dart';
-
-import '../shared/controller/bloc/cubit.dart';
-import '../shared/controller/bloc/states.dart';
+import 'package:shop_app/shared/reusable_components/reusable_components.dart';
+import '../shared/controllers/shared_bloc/cubit.dart';
+import '../shared/controllers/shared_bloc/states.dart';
 
  /*--------------------   products screen--------------------------*/
 class HomeScreen extends StatelessWidget {
@@ -111,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10.0,
                 ),
-                Container(
+                SizedBox(
                   height: 100.0,
                   child: ListView.separated(
                     shrinkWrap: true,
@@ -231,7 +230,7 @@ class HomeScreen extends StatelessWidget {
                             decoration: TextDecoration.lineThrough,
                           ),
                         ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                         onPressed: () {
                           ShopCubit.get(context)
@@ -244,7 +243,7 @@ class HomeScreen extends StatelessWidget {
                                   ? Colors.blue
                                   : Colors.grey,
                           radius: 15.0,
-                          child: Icon(
+                          child: const Icon(
                             Icons.favorite_border,
                             size: 16.0,
                             color: Colors.white,

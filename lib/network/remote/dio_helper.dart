@@ -9,7 +9,6 @@ class DioHelper {
         baseUrl: "https://student.valuxapps.com/api/",
         receiveDataWhenStatusError: true,
         persistentConnection: false,
-
       ),
     );
   }
