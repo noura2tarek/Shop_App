@@ -1,6 +1,7 @@
 # Shop App
+
 # General Description
-Shop Application include Electronics Devices, Sports, Lighting, and Clothes categories.
+Shop Application implemented using flutter includes Electronics Devices, Sports, Lighting, and Clothes categories and profile management. 
 
 # State Management
 The state Management Used is Bloc(Cubit).
